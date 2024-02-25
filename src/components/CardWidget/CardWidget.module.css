@@ -1,0 +1,13 @@
+.card{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 15px;
+    transition: 0.2s;
+    color: white;
+}
+.card:hover{
+    transition: 0.2s;
+    scale: 1.1;
+}

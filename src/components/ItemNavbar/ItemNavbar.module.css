@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(46, 33, 33);
+    border: 5px solid rgb(29, 21, 21);
+    border-radius: 15px;
+    height: 200px;
+    margin: 50px;
+    padding: 0;
+}
