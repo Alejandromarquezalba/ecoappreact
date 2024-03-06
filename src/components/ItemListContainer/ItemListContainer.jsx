@@ -3,9 +3,9 @@ import classes from './ItemListContainer.module.css'
 
 const List = (props) => {
     return (
-        <ul>
+        <div>
             <a className={classes.navlist}>{props.greeting}</a>
-        </ul>
+        </div>
     )
 }
 

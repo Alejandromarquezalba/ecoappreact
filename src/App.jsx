@@ -7,7 +7,13 @@ import List from './components/ItemListContainer/ItemListContainer'
 
 function App() {
   return (
+    <div>
       <Navbar/>
+      <List greeting='Cuadrado'/>
+      <List greeting='Círculo'/>
+      <List greeting='Triángulo'/>
+      <List greeting='híper dodecaedro'/>
+    </div>
   )
 }
 //COMPONENTE NAVBAR
