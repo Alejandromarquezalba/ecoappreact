@@ -1,5 +1,5 @@
-const useCount = ()=>{
-    const [cuenta, setCuenta] = useState(0);
+const useCount = (ValorInicial = 0)=>{
+    const [cuenta, setCuenta] = useState(ValorInicial);
 
     const crecer = () => {
         setCuenta(prev => prev + 1)

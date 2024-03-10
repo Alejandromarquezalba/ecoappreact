@@ -3,7 +3,7 @@ import { useCount} from '../../hooks/useCount'
 
 const Count = () => {
     
-    const {count,crecer,disminuir} = useCount()
+    const {count,crecer,disminuir} = useCount(10)
 
     return (
         <div>

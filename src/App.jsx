@@ -16,7 +16,6 @@ function App() {
     </div>
   )
 }
-//COMPONENTE NAVBAR
-//COMPONENTE LIST CONTAINER (debe recibir una props como titulo y mostrarla en la pantalla principal)
-//Y COMPONENTE CARDWIDGET (un boton con una img) TIENE QUE IR DENTRO DEL COMPONENTE DE NAVBAR
+
+//CONTADOR QUE PUEDA AGREGAR AUMENTAR O DISMINUIR UNA CANTIDAD Y PODER AGREGAR ESA CANTIDAD AL CARRITO
 export default App
