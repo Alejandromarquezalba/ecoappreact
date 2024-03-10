@@ -1,18 +1,15 @@
 import { useState } from "react"
+import { useCount} from '../../hooks/useCount'
 
 const Count = () => {
-    const [cuenta, setCuenta] = useState(-69);
-
-    const accionar = () => {
-        setCuenta( 100 )
-    }
     
+    const {count,crecer,disminuir} = useCount()
 
     return (
         <div>
             <h1>{cuenta}</h1>
-            <button>Aumentar +</button>
-            <button onClick={accionar}>Restar -</button>
+            <button onClick={crecer}>Aumentar +</button>
+            <button onClick={disminuir}>Restar -</button>
         </div>
     )    
 }
