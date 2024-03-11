@@ -7,10 +7,10 @@ const Navbar = () => {
     return(
         <div className={classes.navbar}>
             <img src={silhat} alt="Silueta de sombrero"></img>
-            <List greeting='Cuadrado'>1</List>
-            <List greeting='Círculo'>2</List>
-            <List greeting='Triángulo'>3</List>
-            <List greeting='híper dodecaedro'>4</List>
+            <a></a>
+            <a></a>
+            <a></a>
+            <a></a>
             <Card/>
         </div>
     )

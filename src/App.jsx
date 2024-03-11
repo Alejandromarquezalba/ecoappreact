@@ -4,16 +4,29 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/ItemNavbar/ItemNavbar'
 import List from './components/ItemListContainer/ItemListContainer'
+import { BrowserRouter, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
+    <>
+    <BrowserRouter>
       <Navbar/>
+    <Routes>
+      <Route/>
+      <Route/>
+
+
+
+      
+    <div>
       <List greeting='Cuadrado'/>
       <List greeting='Círculo'/>
       <List greeting='Triángulo'/>
       <List greeting='híper dodecaedro'/>
     </div>
+    </Routes>
+    </BrowserRouter>
+    </>
   )
 }
 
