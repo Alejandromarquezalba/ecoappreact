@@ -5,17 +5,13 @@ import { useState } from 'react'
 
 
 const Card = () => {
-    const [count, setCount] = useState(0);
-
-    const sumar = () => {
-        setCount(prev => prev + 1)
-    }
+    
 
     return (
-        <button className={classes.card} onClick={sumar}>
+        <button className={classes.card}>
             <img src={minhat} alt="sombrerito"/>
 
-            <h2>{count}</h2>
+            <h2>0</h2>
         </button>
     )
 }

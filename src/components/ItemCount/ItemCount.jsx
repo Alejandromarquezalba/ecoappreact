@@ -1,15 +1,24 @@
 import { useState } from "react"
-import { useCount} from '../../hooks/useCount'
 
-const Count = () => {
+const Count = ({ initial = 1, stock, onAdd }) => {
     
-    const {count,crecer,disminuir} = useCount(10)
-
+    const [cuenta, setCuenta] = useState(initial);
+    const disminuir = () => {
+        if(cuenta > 1){
+            setCuenta(prev => prev - 1)
+        }
+    }
+    const crecer = () => {
+        if (cuenta < stock){
+            setCuenta(prev => prev + 1)
+        }
+    }
     return (
-        <div>
+        <div style={{display:"flex", justifyContent:'center'}}>
             <h1>{cuenta}</h1>
-            <button onClick={crecer}>Aumentar +</button>
-            <button onClick={disminuir}>Restar -</button>
+            <button onClick={crecer} style={{width:75, height:75}}>+</button>
+            <button onClick={() => onAdd(cuenta)} style={{width:75, height:75}}>Agregar al carrito</button>
+            <button onClick={disminuir} style={{width:75, height:75}}>-</button>
         </div>
     )    
 }
