@@ -20,8 +20,9 @@ const List = ({ greeting }) => {
     },[categoryId])
 
     if(cargando){
-        return <h1 style={{textAlign:'center'}}>Cargando...</h1>
+        return <h2 style={{textAlign:'center'}}>Cargando...</h2>
     }
+
     const productsComponents = products.map(product => {
         return (
             <div>
@@ -34,7 +35,7 @@ const List = ({ greeting }) => {
     })   
     return (
         <div>
-            <h1>{greeting}</h1>
+            <h1 style={{textAlign:'center', fontSize:55}}>{greeting}</h1>
             <ItemList products={products}/>
         </div>
     )

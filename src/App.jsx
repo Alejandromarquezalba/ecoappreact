@@ -9,15 +9,17 @@ import Count from './components/ItemCount/ItemCount'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetalContainer'
 
 
+
 function App() {
   return (
     
     <BrowserRouter>
       <Navbar/>
         <Routes>
-          <Route path='/' element={<List greeting={'App/Broser/Routes/Route'}/>}/>
+          <Route path='/' element={<List greeting={'Bienvenido'}/>}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
           <Route path='/category/:categoryId' element={<List greeting={'Esta es la categorica'}/>}/>
+          
         </Routes>
     
     </BrowserRouter>

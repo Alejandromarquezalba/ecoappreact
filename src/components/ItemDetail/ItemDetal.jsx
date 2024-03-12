@@ -2,7 +2,7 @@ import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({ name, category, img, edad, description, stock})=>{
     return(
-        <div>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <h2>Categoría: {category}</h2>
             <h2>Nombre: {name}</h2>
             <img src={img} style={{width:200, height:200}}/>

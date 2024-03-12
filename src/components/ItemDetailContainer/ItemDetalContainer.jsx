@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
 
     return (
         <main>
-            <h1>Pepe</h1>
+            <h1 style={{textAlign:'center'}}>Detalles</h1>
             <ItemDetail {...product}/>
         </main>
     )

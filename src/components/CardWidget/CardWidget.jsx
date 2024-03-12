@@ -10,8 +10,7 @@ const Card = () => {
     return (
         <button className={classes.card}>
             <img src={minhat} alt="sombrerito"/>
-
-            <h2>0</h2>
+            <h2>$0</h2>
         </button>
     )
 }
