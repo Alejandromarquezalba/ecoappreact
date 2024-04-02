@@ -7,6 +7,7 @@ import Navbar from './components/ItemNavbar/ItemNavbar'
 import List from './components/ItemListContainer/ItemListContainer'
 import Count from './components/ItemCount/ItemCount'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetalContainer'
+import Checkout from './components/Checkout/Checkout'
 
 
 
@@ -19,7 +20,8 @@ function App() {
           <Route path='/' element={<List greeting={'Bienvenido'}/>}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
           <Route path='/category/:categoryId' element={<List greeting={'Esta es la categorica'}/>}/>
-          
+          <Route path='/cart' element={<CartView/>}></Route>
+          <Route path='/checkout' element={<Checkout/>}></Route>
         </Routes>
     
     </BrowserRouter>
@@ -28,12 +30,5 @@ function App() {
 }
 
 
-//INICIO
-//BUSQUEDA
-//DETALLE
-//revisar el carrito
-//Y una confirmación de la orden
 
-
-//CONTADOR QUE PUEDA AGREGAR AUMENTAR O DISMINUIR UNA CANTIDAD Y PODER AGREGAR ESA CANTIDAD AL CARRITO
 export default App

@@ -1,17 +1,20 @@
 import minhat from '../CardWidget/assets/minhat.png'
 import classes from './CardWidget.module.css'
-import { useState } from 'react'
-
-
+import { CardContext } from '../../context/CardContext'
+import { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Card = () => {
-    
 
+
+    const totalQuantity = useContext(CardContext)
+    
     return (
-        <button className={classes.card}>
+        
+        <Link className={classes.card}>
             <img src={minhat} alt="sombrerito"/>
-            <h2>$0</h2>
-        </button>
+            {totalQuantity}
+        </Link>
     )
 }
 
