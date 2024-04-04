@@ -1,4 +1,38 @@
-import classes from './ItemListContainer/'
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import ItemDetail from "../ItemDetail/ItemDetal"
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../services/firebase/firebaseConfig"
+
+
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState(null)
+
+    const { itemId } = useParams()
+
+    useEffect(() => {
+        const productDoc = doc(db, 'products', itemId)
+
+        getDoc(productDoc)
+            .then(queryDocumentSnapshot => {
+                const data = queryDocumentSnapshot.data()
+                const productAdapted = { id: queryDocumentSnapshot.id, ...data}
+
+                setProduct(productAdapted)
+            })
+            .catch()
+    }, [itemId])
+
+    return (
+        <div style={{ background: 'purple'}}>
+            <h1 style={{textAlign:'center'}}>Detalle de producto</h1>
+            <ItemDetail {...product} />
+        </div>
+    )
+}
+
+export default ItemDetailContainer
+/*
 import { getProducts, getProductsByCategory } from '../../asyncMock';
 import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
@@ -13,7 +47,7 @@ const List = ({ greeting }) => {
 
     
     useEffect(()=>{
-       setCargando(true)
+        setCargando(true)
         
        const ProductsCollection = 
        categoryId ? 
@@ -28,17 +62,13 @@ const List = ({ greeting }) => {
             })
             setProducts(productsAdapted)
          })
-         .catch(error => console.log(error))
-         .finally(()=>{
-            setCargando(false)
-         })
+         .catch()
          
     },[categoryId])
 
     if(cargando){
-        return <h1 style={{textAlign:'center'}}>Los productos se están cargando, espere por favor...</h1>
+        return <h2 style={{textAlign:'center'}}>Cargando...</h2>
     }
-    
 
     const productsComponents = products.map(product => {
         return (
@@ -51,7 +81,7 @@ const List = ({ greeting }) => {
         )
     })   
     return (
-        <div style={{backgroundColor: 'green'}}>
+        <div style={{backgroundColor:'orange'}}>
             <h1 style={{textAlign:'center', fontSize:55}}>{greeting}</h1>
             <ItemList products={products}/>
         </div>
@@ -59,3 +89,4 @@ const List = ({ greeting }) => {
 }
 
 export default List;
+*/

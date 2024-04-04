@@ -1,10 +1,10 @@
-import { CardContext } from '../../context/CardContext'
+import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 const CartView = () =>{
 
-    const { card } = useContext(CardContext)
+    const { card } = useContext(CartContext)
     return (
         <div>
             <h1>

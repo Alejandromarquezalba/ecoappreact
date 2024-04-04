@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { CardContext } from '../../context/CardContext'
+//import { CartContext } from "../../context/CartContext" 
 import { getDocs, collection, query, where, documentId, QuerySnapshot, writeBatch } from 'firebase/firestore'
 
 
@@ -7,7 +7,7 @@ const Checkout = ()=>{
 
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState(null)
-    const [card, total, clearCart] = useContext(CardContext)
+    const [card, total, clearCart] = useContext(CartContext)
 
     const createOrder = async (userData)=>{
 
