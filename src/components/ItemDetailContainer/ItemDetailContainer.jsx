@@ -17,10 +17,9 @@ const ItemDetailContainer = () => {
             .then(queryDocumentSnapshot => {
                 const data = queryDocumentSnapshot.data()
                 const productAdapted = { id: queryDocumentSnapshot.id, ...data}
-
                 setProduct(productAdapted)
             })
-            .catch()
+            .catch().finally()
     }, [itemId])
 
     return (

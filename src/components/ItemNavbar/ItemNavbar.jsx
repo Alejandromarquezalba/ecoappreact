@@ -11,7 +11,7 @@ const Navbar = () => {
                 <Link to={`/`}><img src={silhat} alt="Silueta de sombrero"></img></Link>
                 <Link to={`./category/comida`}>Comida</Link>
                 <Link to={`./category/entretenimiento`}>Entretenimiento</Link>
-                <Link to={`./category/ropa`}>Ropa</Link>
+                <Link to={`./category/ropa`}>Vestimenta</Link>
                 <Card/>
             </div>
         </header>

@@ -1,6 +1,8 @@
 import { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import { CartContext } from '../../context/CartContext';
+import { useNotification } from '../notification/hooks/useNotification';
+import { Link } from 'react-router-dom'; 
 
 const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
@@ -32,11 +34,13 @@ const ItemDetail = ({ id, name, category, img, price, edad, description, stock})
     const [quantity, setQuantity] = useState(0)
     
     const { addItem } = useContext(CartContext)
+    const {showNotification} = useNotification()
 
     const ItemCount = inputType === 'input' ? InputCount : ButtonCount
     
     const handleOnAdd = (quantity) => {
         const objProductToAdd = {id, name, price, quantity}
+        showNotification('success',`Ha realizado su compra de ${quantity} ${name}`)
         setQuantity(quantity)
         addItem(objProductToAdd)
     }
@@ -49,7 +53,7 @@ const ItemDetail = ({ id, name, category, img, price, edad, description, stock})
             <img src={img} style={{width:200, height:200}}/>
             <p>Edad: {edad}</p>
             <p>Descripción: {description}</p>
-            {quantity == 0 ? <ItemCount stock={stock} onAdd={handleOnAdd}/>: <button>Terminar compra</button>}
+            {quantity == 0 ? <ItemCount stock={stock} onAdd={handleOnAdd}/>: <Link to='/cart'>Terminar compra</Link>}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { NotificationContext } from "../NotificationsService"
 
-export const useNotification = () => {
+export const useNotification = ()=>{
     return useContext(NotificationContext)
 }

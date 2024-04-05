@@ -10,6 +10,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Checkout from './components/Checkout/Checkout'
 import CartView from '../src/components/CartView/CartView'
 import { CartProvider } from './context/CartContext'
+import { NotificationProvider } from './components/notification/NotificationsService'
 
 
 
@@ -20,19 +21,22 @@ function App() {
 
   return (
     <>
-    <CartProvider>
-      <BrowserRouter>
-        <Navbar/>
-          <Routes>
-            <Route path='/' element={<List greeting={'Bienvenido'}/>}/>
-            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-            <Route path='/category/:categoryId' element={<List greeting={'Esta es la categorica'}/>}/>
-            <Route path='/cart' element={<CartView/>}></Route>
-            <Route path='/checkout' element={<Checkout/>}></Route>
-          </Routes>
-      
-      </BrowserRouter>
-    </CartProvider>
+      <CartProvider>
+        <NotificationProvider>
+          <BrowserRouter>
+          
+            <Navbar/>
+              <Routes>
+                <Route path='/' element={<List greeting={'Bienvenido'}/>}/>
+                <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+                <Route path='/category/:categoryId' element={<List greeting={'Esta es la categorica'}/>}/>
+                <Route path='/cart' element={<CartView/>}></Route>
+                <Route path='/checkout' element={<Checkout/>}></Route>
+              </Routes>
+          
+          </BrowserRouter>
+        </NotificationProvider>
+      </CartProvider>
 
     </>
   )

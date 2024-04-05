@@ -5,12 +5,13 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { getDocs, collection, query, where} from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig';
+import { useNotification } from '../notification/hooks/useNotification';
 
 const List = ({ greeting }) => {
     const { categoryId } = useParams()
     const [products, setProducts] = useState([])
     const [cargando, setCargando] = useState(true)
-
+    const { showNotification} = useNotification()
     
     useEffect(()=>{
        setCargando(true)
@@ -28,7 +29,7 @@ const List = ({ greeting }) => {
             })
             setProducts(productsAdapted)
          })
-         .catch(error => console.log(error))
+         .catch(error => {showNotification('Ha ocurrido un error')})
          .finally(()=>{
             setCargando(false)
          })

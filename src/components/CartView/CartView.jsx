@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 
 const CartView = () =>{
 
-    const { card } = useContext(CartContext)
+    const { cart } = useContext(CartContext)
     return (
         <div>
-            <h1>
-                <section>
+            <h1 style={{textAlign:'center'}}>
                 {
-                    card.map(prod => {
+                    cart.map(prod => {
                         return (
                             <article key={prod.id}>
                                 <h2>{prod.name}</h2>
@@ -18,11 +17,9 @@ const CartView = () =>{
                         )
                     })
                 }
-                </section>
-                <Link to={'/checkout'}>checkout</Link>
+                <Link to={'/checkout'}>Link para ir al checkout</Link>
             </h1>
         </div>
     )
 }
-
 export default CartView;

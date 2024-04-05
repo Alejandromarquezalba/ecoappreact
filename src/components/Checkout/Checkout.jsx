@@ -1,42 +1,38 @@
 import { useContext, useState } from "react"
-//import { CartContext } from "../../context/CartContext" 
-import { getDocs, collection, query, where, documentId, QuerySnapshot, writeBatch } from 'firebase/firestore'
-
+import { CartContext } from "../../context/CartContext"
+import { getDocs, collection, query, where, documentId, QuerySnapshot, writeBatch, Timestamp } from 'firebase/firestore'
+import { SubForm } from "../SubForm/SubForm"
 
 const Checkout = ()=>{
 
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState(null)
-    const [card, total, clearCart] = useContext(CartContext)
+    const {cart, total, clearCart} = useContext(CartContext)
 
-    const createOrder = async (userData)=>{
+    const createOrder = async (name, email, cel)=>{
 
         try{
             setLoading(true)
             const objetctOrder = {
                 buyer : {
-                    name: 'pepe grillo',
-                    email: 'correo@correo.correo',
-                    phone: 123456789
+                    name, email, cel
                 },
-                items: card,
-                total: total
+                items: cart,
+                total: total, 
+                date: Timestamp.fromDate(new Date())
             }
             const batch = writeBatch(db)
             const outOfStock = []
-            const ids = card.map(prod => prod.id)
-    
+            const ids = cart.map(prod => prod.id)
             const productsCollection = query(collection(db, 'products'), where(documentId(), 'in', ids))
-            
             const querySnapshot = await getDocs(productsCollection)
-            
             const { docs } = querySnapshot
             docs.forEach(doc => {
                 //datos de db
                 const data = doc.data
                 const stockdb = data.stock
                 //datos de carrito
-                const productAddedToCart = card.find(prod => prod.id == doc.id)
+                const productAddedToCart = cart.find(prod => prod.id == doc.id)
                 const prodQuantity = productAddedToCart.quantity
                 if(stockdb >= prodQuantity){
                     batch.update(doc.ref, { stock: stockDb - prodQuantity})
@@ -67,13 +63,12 @@ const Checkout = ()=>{
         console.log('La orden está en proceso')
     }
     if(orderId){
-        return <h1>El id de su orden es: {orderId}</h1>
+        return <p>Este es tu ID {orderId}</p>
     }
     return(
-        <div>
-            <h2>Checkout</h2>
-            <h3>Armardo de Formulario</h3>
-            <button onClick={createOrder}>Boton de generar la compra</button>
+        <div style={{textAlign:'center'}}>
+            <h2>Formulario de Checkout</h2>
+            <SubForm onConfirm={createOrder}></SubForm>
         </div>
 
     )
