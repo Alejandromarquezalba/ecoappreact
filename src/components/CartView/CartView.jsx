@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const CartView = () =>{
 
-    const { cart } = useContext(CartContext)
+    const { cart, removeItem } = useContext(CartContext)
     return (
         <div>
             <h1 style={{textAlign:'center'}}>
@@ -13,6 +13,7 @@ const CartView = () =>{
                         return (
                             <article key={prod.id}>
                                 <h2>{prod.name}</h2>
+                                <button onClick={()=>removeItem(prod.id)}>Borrar</button>
                             </article>
                         )
                     })
